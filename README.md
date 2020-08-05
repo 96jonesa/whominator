@@ -24,23 +24,21 @@ To use the command-line script to whominate some text, type the following in com
 If you wish to use " characters inside the text, use the \ delimiter:
 
     whominate "do you know who he \"is\" throwing the 'ball' to?"
+    
+The corrected text is printed with asterisks surrounding the corrections.
 
 # Import in Python
 
-In python you can use
+In Python you can import with:
 
     from whominator import whominator
     
-which takes a single string as input and prints the corrected text:
+The, whominator.whominate can take a single string as input and return the corrected text, without asterisks surrounding the corrections:
 
     whominator.whominate("""some text""")
     
 To avoid using delimeters in hard-coded strings, I advise surrounding the text in triple-qoutes ("""some text""") as opposed to single-qoutes ('some text') or double-quotes ("some text"). If you do this, you will only have to delimit double-quotes at the very end of the text (to avoid ending with more than three quotes).
 
 # Soon to Come
-
-I will update exceptions to include those currently in use on the bot.
-
-I will modify whominator.whominate to return the corrected string, without asterisks surrounding the corrections, instead of printing it.
 
 I will add the spaCy model download to the pip install to make installation simpler.
