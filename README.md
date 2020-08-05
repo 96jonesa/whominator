@@ -15,6 +15,10 @@ It works by running the text through a dependency parser to check if 'who' is us
     pip install whominator
     python -m spacy download en_core_web_sm
     
+Linux and macOS users: you may need to use sudo and/or pip3 and python3. You will know this is the case if it doesn't work without them.
+
+Windows users: you may need to use --user and/or pip3 and python3. You will know this is the case if it doesn't work without them.
+    
 # Command-Line Script
 
 To use the command-line script to whominate some text, type the following in command-line:
