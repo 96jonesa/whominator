@@ -21,19 +21,9 @@ To use the command-line script to whominate some text, type the following in com
 
     whominate "some text"
     
-Or, if you prefer single-quotes:
-
-    whominate 'some text'
-    
-If you wish to use ' or " characters inside the text, use the \ delimiter:
+If you wish to use " characters inside the text, use the \ delimiter:
 
     whominate "do you know who he \"is\" throwing the 'ball' to?"
-    
-Or
-
-    whominate 'do you know who he \'is\' throwing the "ball" to?'
-    
-Only use the \ delimiter for the same type of quotes you are surrounding the text with (do not delimit ' in text surrounded by ", or vice versa, or the \ will be considered part of the text).
 
 # Import in Python
 
