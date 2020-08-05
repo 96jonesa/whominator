@@ -12,7 +12,7 @@ It works by running the text through a dependency parser to check if 'who' is us
 
 # Requirements
 
-Python>=3.6
+Python 3.6 or newer.
 
 # Installation
 
