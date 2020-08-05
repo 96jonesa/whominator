@@ -31,7 +31,7 @@ If you wish to use ' or " characters inside the text, use the \ delimiter:
     
 Or
 
-    whominate 'do you know who he \'is\' throwing the "ball" to?"
+    whominate 'do you know who he \'is\' throwing the "ball" to?'
     
 Only use the \ delimiter for the same type of quotes you are surrounding the text with (do not delimit ' in text surrounded by ", or vice versa, or the \ will be considered part of the text).
 
