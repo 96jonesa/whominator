@@ -50,3 +50,13 @@ To avoid using delimeters in hard-coded strings, I advise surrounding the text i
 # Soon to Come
 
 I will add the spaCy model download to the pip install to make installation simpler.
+
+# Citations
+
+        @inproceedings{akbik2018coling,
+          title={Contextual String Embeddings for Sequence Labeling},
+          author={Akbik, Alan and Blythe, Duncan and Vollgraf, Roland},
+          booktitle = {{COLING} 2018, 27th International Conference on Computational Linguistics},
+          pages     = {1638--1649},
+          year      = {2018}
+        }
