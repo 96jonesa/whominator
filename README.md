@@ -10,6 +10,10 @@ As described in the rgb repo, there are several hard-coded exceptions which are 
 
 It works by running the text through a dependency parser to check if 'who' is used as the object of a verb, then running through a named entity recognizer to determine if the 'who' is part of a proper noun, then checking against hard-coded exceptions.
 
+# Requirements
+
+Python>=3.6
+
 # Installation
 
     pip install whominator
