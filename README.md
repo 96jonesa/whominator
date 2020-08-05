@@ -39,9 +39,13 @@ Only use the \ delimiter for the same type of quotes you are surrounding the tex
 
 In python you can use
 
-    import whominator.whominate
+    from whominator import whominator.whominate
     
-which takes a single string as input and prints the corrected text.
+which takes a single string as input and prints the corrected text:
+
+    whominator.whominate("""some text""")
+    
+To avoid using delimeters in hard-coded strings, I advise surrounding the text in triple-qoutes ("""some text""") as opposed to single-qoutes ('some text') or double-quotes ("some text"). If you do this, you will only have to delimit double quotes at the very end of the text (to avoid ending with more than three quotes).
 
 # Soon to Come
 
