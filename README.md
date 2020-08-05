@@ -41,7 +41,7 @@ In Python you can import with:
 
     from whominator import whominator
     
-The, whominator.whominate can take a single string as input and return the corrected text, without asterisks surrounding the corrections:
+The function whominator.whominate takes a single string as input and returns the corrected text, without asterisks surrounding the corrections:
 
     whominator.whominate("""some text""")
     
