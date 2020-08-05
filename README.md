@@ -39,7 +39,7 @@ Only use the \ delimiter for the same type of quotes you are surrounding the tex
 
 In python you can use
 
-    from whominator import whominator.whominate
+    from whominator import whominator
     
 which takes a single string as input and prints the corrected text:
 
