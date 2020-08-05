@@ -21,7 +21,7 @@ Windows users: you may need to use --user and/or pip3 and python3. You will know
 
 The spaCy en_core_web_sm model is 432 MB so it may take a while to download.
 
-The flair named entity reconigzer will download the first time you use either the command-line script or the imported function in Python.
+The flair named entity recognizer will download the first time you use either the command-line script or the imported function in Python.
     
 # Command-Line Script
 
