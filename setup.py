@@ -5,7 +5,7 @@ with open("requirements.txt") as f:
 
 setuptools.setup(
     name='whominator',
-    version='0.1.0',
+    version='0.1.1',
     description='corrects who to whom',
     url='https://github.com/96jonesa/whominator',
     author='96jonesa',

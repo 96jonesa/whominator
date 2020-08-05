@@ -18,4 +18,4 @@ with nostdout():
     from whominator import whominator
 
 __author__ = '96jonesa'
-__version__ = '0.1.0'
+__version__ = '0.1.1'

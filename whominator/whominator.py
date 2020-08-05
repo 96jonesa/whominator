@@ -31,11 +31,11 @@ def check_for_exceptions(doc, token):
 
     i = token.i
 
-    if i > 0 and doc[i - 1].text.lower() in ['the', '\"']:
+    if i > 0 and doc[i - 1].text.lower() in ['the', '\"', 'who', 'dr', 'doctor', 'boo']:
         return True
 
     if len(doc) > i + 1:
-        if doc[i + 1].text.lower in ['tf', '\"']:
+        if doc[i + 1].text.lower in ['tf', '\"', 'who']:
             return True
         if doc[i + 1].text[0] == '\'':
             return True
@@ -53,18 +53,24 @@ def check_for_exceptions(doc, token):
 # use all caps or Spongebob-case if being used, otherwise append lowercase m.
 # surrounds with * on each side to emphasize the corrected word - on reddit
 # this italicizes the word.
-def whom_string(who_string_with_ws):
+def whom_string(who_string_with_ws, italicize):
 
     result = ''
+
+    if italicize:
+        result += '*'
 
     who_string = who_string_with_ws[:3]
 
     if who_string == 'WHO':
-        result = '*WHOM*'
+        result += 'WHOM'
     elif who_string == 'wHo':
-        result = '*wHoM*'
+        result += 'wHoM'
     else:
-        result = '*' + who_string + 'm*'
+        result += who_string + 'm'
+
+    if italicize:
+        result += '*'
 
     if len(who_string_with_ws) > 3:
         return result + ' '
@@ -94,7 +100,7 @@ def correct_who_to_whom(text):
         # it is very difficult for named entity recognizer to recognize 'Who'
         # in isolation - the motivating text was repeated exclamation of
         # 'Who! Who!' in a The Grinch fan fiction.
-        if token.text.lower() in ['grinch', 'whoville']:
+        if token.text.lower() in ['grinch', 'whoville', 'scooby', 'horton']:
             return
 
         if token.text.lower() == 'who' :
@@ -118,7 +124,7 @@ def correct_who_to_whom(text):
                         # between last word in sentence and punctutation, rejoins
                         # don and 't to form don't, etc., only if such joins were
                         # present in the original text)
-                        tokenized_text[token.i] = whom_string(token.text_with_ws)
+                        tokenized_text[token.i] = whom_string(token.text_with_ws, True)
 
     # prints the text with corrections made (corrections surround by asterisks)
     corrected_text = ''.join([tkn for tkn in tokenized_text])
@@ -126,4 +132,49 @@ def correct_who_to_whom(text):
 
 
 def whominate(text):
-    correct_who_to_whom(text)
+    doc = nlp(text)
+
+    tokenized_text = []
+
+    phrases = []
+
+    token_number = 0
+
+    for token in doc:
+
+        tokenized_text.append(token.text_with_ws)
+
+        token_number += 1
+
+        # it is very difficult for named entity recognizer to recognize 'Who'
+        # in isolation - the motivating text was repeated exclamation of
+        # 'Who! Who!' in a The Grinch fan fiction.
+        if token.text.lower() in ['grinch', 'whoville', 'scooby', 'horton']:
+            return
+
+        if token.text.lower() == 'who' :
+            if token.dep_ in ['dobj', 'iobj', 'pobj']:
+
+                # check for the hard-coded exceptions
+                if not check_for_exceptions(doc, token):
+                    should_be_whom = True
+
+                    sentence = Sentence(text, use_tokenizer=SegtokTokenizer())
+                    tagger.predict(sentence)
+
+                    # make sure it is not part of a named entity
+                    for entity in sentence.get_spans('ner'):
+                        if token.idx >= entity.start_pos and token.idx <= entity.end_pos:
+                            should_be_whom = False
+
+                    if should_be_whom:
+
+                        # detokenizes the corrected excerpt (e.g. removes added space
+                        # between last word in sentence and punctutation, rejoins
+                        # don and 't to form don't, etc., only if such joins were
+                        # present in the original text)
+                        tokenized_text[token.i] = whom_string(token.text_with_ws, False)
+
+    # prints the text with corrections made (corrections surround by asterisks)
+    corrected_text = ''.join([tkn for tkn in tokenized_text])
+    return corrected_text
