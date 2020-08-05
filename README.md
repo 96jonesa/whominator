@@ -2,7 +2,7 @@
 
 <a href="https://imgflip.com/i/4ahyja"><img src="https://i.imgflip.com/4ahyja.jpg" title="made at imgflip.com"/></a><div>
 
-A tool for correcting 'who' to whom'.
+A tool for correcting 'who' to 'whom'.
 
 Modified from the processing code for a Reddit bot described at https://github.com/96jonesa/rgb.
 
