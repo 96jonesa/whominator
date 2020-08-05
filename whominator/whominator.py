@@ -3,11 +3,26 @@ from flair.data import Sentence
 from flair.models import SequenceTagger
 from flair.tokenization import SegtokTokenizer
 import time
+import contextlib
 import sys
 
-nlp = spacy.load('en_core_web_sm')
-tagger = SequenceTagger.load('ner')
+# there is an annoying loading printout from flair's NER tagger.
+# this suppression must also surround imports to avoid the printout.
+class DummyFile(object):
+    def write(self, x): pass
 
+@contextlib.contextmanager
+def nostdout():
+    save_stdout = sys.stdout
+    sys.stdout = DummyFile()
+    yield
+    sys.stdout = save_stdout
+
+
+nlp = spacy.load('en_core_web_sm')
+
+with nostdout():
+    tagger = SequenceTagger.load('ner')
 
 # checks for various surrounding tokens which produce false flags
 # due to the typically terrible overall grammar and prevelance of
@@ -110,14 +125,5 @@ def correct_who_to_whom(text):
     print(corrected_text)
 
 
-# keep track of submissions already replied to, to avoid buggy repeats
-def main():
-
-    try:
-        text = sys.argv[1]
-        correct_who_to_whom(text)
-    except:
-        print("You must pass the text you want corrected as a command-line argument")
-
-
-main()
+def whominate(text):
+    correct_who_to_whom(text)

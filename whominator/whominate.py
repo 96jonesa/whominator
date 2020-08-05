@@ -15,7 +15,13 @@ def nostdout():
 
 
 with nostdout():
-    from whominator import whominator
+    from whominator.whominator import correct_who_to_whom
 
-__author__ = '96jonesa'
-__version__ = '0.1.0'
+
+def main():
+
+    try:
+        text = sys.argv[1]
+        correct_who_to_whom(text)
+    except:
+        print("You must pass the text you want corrected as a command-line argument")
