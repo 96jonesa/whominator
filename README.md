@@ -39,7 +39,7 @@ Only use the \ delimiter for the same type of quotes you are surrounding the tex
 
 In python you can use
 
-    import whominator.whominator.whominate
+    import whominator.whominate
     
 which takes a single string as input and prints the corrected text.
 
@@ -47,6 +47,6 @@ which takes a single string as input and prints the corrected text.
 
 I will update exceptions to include those currently in use on the bot.
 
-I will modify whominator.whominator.whominate to return the corrected string, without asterisks surrounding the corrections, instead of printing it.
+I will modify whominator.whominate to return the corrected string, without asterisks surrounding the corrections, instead of printing it.
 
 I will add the spaCy model download to the pip install to make installation simpler.
