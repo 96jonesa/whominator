@@ -18,6 +18,10 @@ It works by running the text through a dependency parser to check if 'who' is us
 Linux and macOS users: you may need to use sudo and/or pip3 and python3. You will know this is the case if it doesn't work without them.
 
 Windows users: you may need to use --user and/or pip3 and python3. You will know this is the case if it doesn't work without them.
+
+The spaCy en_core_web_sm model is 432 MB so it may take a while to download.
+
+The flair named entity reconigzer will download the first time you use either the command-line script or the imported function in Python.
     
 # Command-Line Script
 
