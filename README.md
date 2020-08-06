@@ -23,6 +23,10 @@ Linux and macOS users: you may need to use sudo and/or pip3 and python3. You wil
 
 Windows users: you may need to use --user and/or pip3 and python3. You will know this is the case if it doesn't work without them.
 
+If Python import or command-line tool still don't work, then the following should work:
+
+    python3 -m pip install whominator
+
 The spaCy en_core_web_sm model is 432 MB so it may take a while to download.
 
 The models will be cached the first time you use either the command-line script or the imported function in Python - this takes some time.
@@ -59,10 +63,10 @@ I will add the spaCy model download to the pip install to make installation simp
 
 # Citations
 
-        @inproceedings{akbik2018coling,
-          title={Contextual String Embeddings for Sequence Labeling},
-          author={Akbik, Alan and Blythe, Duncan and Vollgraf, Roland},
-          booktitle = {{COLING} 2018, 27th International Conference on Computational Linguistics},
-          pages     = {1638--1649},
-          year      = {2018}
-        }
+    @inproceedings{akbik2018coling,
+      title={Contextual String Embeddings for Sequence Labeling},
+      author={Akbik, Alan and Blythe, Duncan and Vollgraf, Roland},
+      booktitle = {{COLING} 2018, 27th International Conference on Computational Linguistics},
+      pages     = {1638--1649},
+      year      = {2018}
+    }
