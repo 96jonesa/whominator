@@ -39,7 +39,7 @@ To use the command-line script to whominate some text, type the following in com
     
 If you wish to use " characters inside the text, use the \ delimiter:
 
-    whominate "do you know who he \"is\" throwing the 'ball' to?"
+    whominate "do you know who he \"is\" speaking to, or 'don't' you?"
     
 The corrected text is printed with asterisks surrounding the corrections.
 
