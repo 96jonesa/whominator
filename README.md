@@ -27,6 +27,8 @@ The spaCy en_core_web_sm model is 432 MB so it may take a while to download.
 
 The models will be cached the first time you use either the command-line script or the imported function in Python - this takes some time.
 
+# Installation Not Working?
+
 If you are using Windows and experience an error in the (automated) installation of PyTorch (which is a dependency for flair), try the tip from https://docs.python.org/3.7/using/windows.html section 3.1.2. If that does not work, then you have run into a compatibility issue with the newest versions of Pytorch, Python, and Windows. If that is the case, then you must install an older version of Pytorch:
 
     pip install torch==1.2.0+cpu torchvision==0.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
