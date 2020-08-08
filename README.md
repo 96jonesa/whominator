@@ -31,6 +31,12 @@ If you are using Windows and experience an error in the (automated) installation
 
     pip install torch==1.2.0+cpu torchvision==0.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
     
+In order to use the command-line script, the directory containing it must be on PATH. Usually this will occur automatically, however if it doesn't you will see a warning during the installation which will tell you which directory it is in. If that directory is '/path/to/dir' then you can add it to PATH with:
+
+    export PATH="/path/to/dir:$PATH"
+    
+followed by restarting the terminal.
+    
 # Command-Line Script
 
 To use the command-line script to whominate some text, type the following in command-line:
